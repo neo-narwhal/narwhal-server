@@ -1,0 +1,29 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+autopep8 = "*"
+
+[packages]
+flask = "*"
+flask-cors = "*"
+docker = "*"
+flask-sqlalchemy = "*"
+flask-compress = "*"
+flask-migrate = "*"
+flask-assets = "*"
+flask-login = "*"
+flask-mail = "*"
+flask-script = "*"
+flask-sslify = "*"
+flask-wtf = "*"
+gunicorn = "*"
+redis = "*"
+requests = "*"
+flask-restplus = "*"
+pymysql = "*"
+
+[requires]
+python_version = "3.7"

@@ -1,0 +1,14 @@
+flask
+flask_cors
+docker
+Flask-Compress
+Flask-Login
+Flask-Mail
+Flask-Migrate
+Flask-Script
+Flask-SQLAlchemy
+Flask-SSLify
+Flask-WTF
+gunicorn
+redis
+requests
