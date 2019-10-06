@@ -1,9 +1,9 @@
 import time
 
 from flask import Response
-from flask_jwt import JWT, jwt_required
 
 from app.model.user import User
+from flask_jwt import JWT, jwt_required
 
 
 class Auth():

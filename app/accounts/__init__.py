@@ -39,10 +39,8 @@ class Register(Resource):
             filter(User.email == email).first()
         if not user:
             try:
-                new_user = User(email=email,
-                                password=password,
-                                username=username,
-                                level=0)
+                new_user = User(
+                    email=email, password=password, username=username, level=0)
                 db.session.add(new_user)
                 db.session.commit()
             except Exception as err:
