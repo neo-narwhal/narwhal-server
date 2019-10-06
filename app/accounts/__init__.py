@@ -36,7 +36,8 @@ class Register(Resource):
         username = request.form['username']
 
         user = User.query.\
-            filter(User.email == email).first()
+            filter(User.email == email or User.username == username).first()
+
         if not user:
             try:
                 new_user = User(email=email,
@@ -45,8 +46,7 @@ class Register(Resource):
                                 level=0)
                 db.session.add(new_user)
                 db.session.commit()
-            except Exception as err:
-                print(err)
+            except:
                 return Response('', status=500)
             else:
                 return Response('', status=201)

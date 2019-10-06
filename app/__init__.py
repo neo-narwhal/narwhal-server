@@ -20,7 +20,7 @@ def create_app():
     app.config[
         'SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://yaoandy107:123qwe@localhost/narwhal'
     app.config['DEBUG'] = True
-    app.config['JWT_SECRET_KEY'] = 'Let\'s Narwhal great again!'
+    app.config['JWT_SECRET_KEY'] = 'Let Narwhal great again!'
 
     # Set up extensions
     db.init_app(app)
