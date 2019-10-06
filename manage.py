@@ -2,7 +2,7 @@ import os
 import subprocess
 
 from flask_migrate import Migrate, MigrateCommand
-from flask_script import Server, Manager, Shell
+from flask_script import Manager, Server, Shell
 from redis import Redis
 
 from app import create_app, db
@@ -22,6 +22,7 @@ def make_shell_context():
 manager.add_command('runserver', server)
 
 manager.add_command('db', MigrateCommand)
+
 
 @manager.command
 def recreate_db():

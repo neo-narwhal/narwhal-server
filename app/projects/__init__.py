@@ -1,4 +1,4 @@
-from flask import Blueprint, request, Response
+from flask import Blueprint, Response, request
 from flask_restplus import Api, Resource
 
 from app import db

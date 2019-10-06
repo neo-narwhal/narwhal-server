@@ -6,7 +6,6 @@ from .. import db
 
 class User(db.Model):
     __tablename__ = 'user'
-    __table_args__ = (Index('email', 'email', 'username', unique=True), )
 
     id = Column(INTEGER(10), primary_key=True)
     email = Column(String(255), nullable=False)
