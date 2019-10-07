@@ -10,7 +10,7 @@ class Project(db.Model):
 
     id = Column(INTEGER(10), primary_key=True)
     user_id = Column(ForeignKey('user.id'), nullable=False, index=True)
-    name = Column(String(255), nullable=False, unique=True)
+    name = Column(String(191), nullable=False, unique=True)
     port = Column(TINYINT(4), nullable=False)
 
     user = relationship('User')

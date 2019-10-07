@@ -9,7 +9,7 @@ class Addon(db.Model):
     __tablename__ = 'addon'
 
     id = Column(INTEGER(10), primary_key=True)
-    name = Column(String(255), nullable=False, unique=True)
+    name = Column(String(191), nullable=False, unique=True)
     project_id = Column(ForeignKey('project.id'), nullable=False, index=True)
 
     project = relationship('Project')
