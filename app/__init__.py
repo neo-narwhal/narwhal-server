@@ -5,6 +5,7 @@ from flask_assets import Environment
 from flask_compress import Compress
 from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -17,8 +18,8 @@ def create_app():
 
     # not using sqlalchemy event system, hence disabling it
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config[
-        'SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://yaoandy107:123qwe@localhost/narwhal'
+    app.config['SERVER_NAME'] = 'narwhal.ntut.club'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://yaoandy107:123qwe@localhost/narwhal'
     app.config['DEBUG'] = True
     app.config['JWT_SECRET_KEY'] = 'Let Narwhal great again!'
 
@@ -26,6 +27,7 @@ def create_app():
     db.init_app(app)
     compress.init_app(app)
     jwt = JWTManager(app)
+    CORS(app, resources={r"/api/*": {"origins": "*"}})
 
     # Create app blueprints
     from .helloworld import blueprint as helloworld_api

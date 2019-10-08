@@ -1,5 +1,6 @@
 from flask import Blueprint, Response, request
 from flask_restplus import Api, Resource
+from flask_jwt_extended import jwt_required
 
 from app import db
 from app.model import User
