@@ -6,6 +6,8 @@ from flask_restplus import Api, Resource
 
 from app import db
 from app.model.user import User
+from sqlalchemy import or_
+
 
 blueprint = Blueprint('accounts', __name__)
 api = Api(blueprint)
@@ -36,7 +38,7 @@ class Register(Resource):
         username = request.form['username']
 
         user = User.query.\
-            filter(User.email == email or User.username == username).first()
+            filter(or_(User.email == email, User.username == username)).first()
 
         if not user:
             try:
