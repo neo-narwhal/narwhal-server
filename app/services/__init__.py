@@ -11,7 +11,7 @@ blueprint = Blueprint('services', __name__)
 api = Api(blueprint)
 
 
-@api.route('/')
+@api.route('')
 class AvailableServices(Resource):
     def get(self):
         with open('app/static/available_services.json') as f:
