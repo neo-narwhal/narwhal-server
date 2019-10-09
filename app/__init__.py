@@ -6,6 +6,7 @@ from flask_compress import Compress
 from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+import logging
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -28,6 +29,8 @@ def create_app():
     compress.init_app(app)
     jwt = JWTManager(app)
     CORS(app, resources={r"/api/*": {"origins": "*"}})
+    
+    logging.getLogger('flask_cors').level = logging.DEBUG
 
     # Create app blueprints
     from .helloworld import blueprint as helloworld_api
