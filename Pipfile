@@ -21,6 +21,7 @@ flask-restplus = "*"
 pymysql = "*"
 flask-jwt-extended = "*"
 flask-cors = "*"
+python-docker-machine = "*"
 
 [requires]
 python_version = "3.7"

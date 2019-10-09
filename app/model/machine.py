@@ -10,8 +10,8 @@ class Machine(db.Model):
 
     id = Column(INTEGER(10), primary_key=True)
     user_id = Column(ForeignKey('user.id'), nullable=False, index=True)
-    port = Column(SMALLINT(5), nullable=False, unique=True)
     cpu = Column(Float, nullable=False)
     memory = Column(MEDIUMINT(8), nullable=False)
+    disk_size = Column(MEDIUMINT(8), nullable=False)
 
     user = relationship('User')
