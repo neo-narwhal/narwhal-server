@@ -24,7 +24,7 @@ class Projects(Resource):
             filter(Project.user_id == user_id).all()
         data = []
         for project in projects:
-            data.append(project.id)
+            data.append(str(project.id))
         return Response(json.dumps(data), status=200)
 
     @jwt_required
