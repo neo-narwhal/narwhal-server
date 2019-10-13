@@ -14,7 +14,7 @@ class DockerManager(object):
         self.client = docker.from_env()
 
         try:
-            with open('app/docker/manifest.json', 'r') as os_manifest:
+            with open('app/services/services.json', 'r') as os_manifest:
                 self.OS_LIST = json.load(os_manifest)
         except Exception:
             pass

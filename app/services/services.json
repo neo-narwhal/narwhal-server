@@ -1,0 +1,174 @@
+[
+  {
+    "label": "Ubuntu",
+    "value": "ubuntu",
+    "suggestion": "",
+    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/ubuntu.png",
+    "subList": [
+      {
+        "label": "14.04",
+        "imageTag": "instantbox/ubuntu:14.04"
+      },
+      {
+        "label": "16.04",
+        "imageTag": "instantbox/ubuntu:16.04"
+      },
+      {
+        "label": "18.04",
+        "imageTag": "instantbox/ubuntu:18.04"
+      },
+      {
+        "label": "19.04",
+        "imageTag": "instantbox/ubuntu:19.04"
+      },
+      {
+        "label": "latest",
+        "imageTag": "instantbox/ubuntu:latest"
+      }
+    ]
+  },
+  {
+    "label": "CentOS",
+    "value": "centos",
+    "suggestion": "",
+    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/centos.png",
+    "subList": [
+      {
+        "label": "6.10",
+        "imageTag": "instantbox/centos:6.10"
+      },
+      {
+        "label": "7",
+        "imageTag": "instantbox/centos:7"
+      },
+      {
+        "label": "latest",
+        "imageTag": "instantbox/centos:latest"
+      }
+    ]
+  },
+  {
+    "label": "Arch Linux",
+    "value": "arch",
+    "suggestion": "",
+    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/arch.png",
+    "subList": [
+      {
+        "label": "latest",
+        "imageTag": "instantbox/arch:latest"
+      }
+    ]
+  },
+  {
+    "label": "Debian",
+    "value": "debian",
+    "suggestion": "",
+    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/debian.png",
+    "subList": [
+      {
+        "label": "jessie",
+        "imageTag": "instantbox/debian:jessie"
+      },
+      {
+        "label": "stretch",
+        "imageTag": "instantbox/debian:stretch"
+      },
+      {
+        "label": "latest",
+        "imageTag": "instantbox/debian:latest"
+      }
+    ]
+  },
+  {
+    "label": "Fedora",
+    "value": "fedora",
+    "suggestion": "",
+    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/fedora.png",
+    "subList": [
+      {
+        "label": "28",
+        "imageTag": "instantbox/fedora:28"
+      },
+      {
+        "label": "29",
+        "imageTag": "instantbox/fedora:29"
+      },
+      {
+        "label": "latest",
+        "imageTag": "instantbox/fedora:latest"
+      }
+    ]
+  },
+  {
+    "label": "Alpine",
+    "value": "alpine",
+    "suggestion": "",
+    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
+    "subList": [
+      {
+        "label": "latest",
+        "imageTag": "instantbox/alpine:latest"
+      }
+    ]
+  },
+  {
+    "label": "Jenkins",
+    "value": "jenkins",
+    "suggestion": "",
+    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
+    "subList": [
+      {
+        "label": "latest",
+        "imageTag": "jenkins"
+      }
+    ]
+  },
+  {
+    "label": "SonarQube",
+    "value": "sonarqube",
+    "suggestion": "",
+    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
+    "subList": [
+      {
+        "label": "latest",
+        "imageTag": "sonarqube"
+      }
+    ]
+  },
+  {
+    "label": "JupyterHub",
+    "value": "jupyterhub",
+    "suggestion": "",
+    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
+    "subList": [
+      {
+        "label": "latest",
+        "imageTag": "jupyterhub/jupyterhub"
+      }
+    ]
+  },
+  {
+    "label": "CodeServer",
+    "value": "codeserver",
+    "suggestion": "",
+    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
+    "subList": [
+      {
+        "label": "latest",
+        "imageTag": "codercom/code-server"
+      }
+    ]
+  },
+  {
+    "label": "Jenkins",
+    "value": "jenkins",
+    "suggestion": "",
+    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
+    "subList": [
+      {
+        "label": "latest",
+        "imageTag": "instantbox/alpine:latest"
+      }
+    ]
+  }
+]

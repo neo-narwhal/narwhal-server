@@ -9,6 +9,6 @@ api = Api(blueprint)
 @api.route('')
 class AvailableServices(Resource):
     def get(self):
-        with open('app/docker/manifest.json') as f:
+        with open('app/services/services.json') as f:
             response = Response(f.read(), status=200)
         return response
