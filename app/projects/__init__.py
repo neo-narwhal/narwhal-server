@@ -1,4 +1,4 @@
-from flask import Blueprint, Response, request
+from flask import Blueprint, Response, request, jsonify
 from flask_restplus import Api, Resource
 from flask_jwt_extended import jwt_required, get_jwt_claims
 import json
@@ -35,7 +35,12 @@ class Projects(Resource):
             name = request.form['name']
             description = request.form['description']
             image_tag = request.form['imageTag']
-            project = Project(user_id=user_id, name=name, description=description, image_tag=image_tag)
+            cpu = request.form['cpu']
+            memory = request.form['memory']
+            storage = request.form['storage']
+            is_custom = request.form['isCustom']
+            project = Project(user_id=user_id, name=name, description=description, image_tag=image_tag, cpu=cpu,
+                              memory=memory, storage=storage, is_custom=is_custom)
             db.session.add(project)
             db.session.commit()
             return Response('', status=201)
@@ -50,7 +55,7 @@ class TheProject(Resource):
     def get(self, id):
         project = Project.query.filter(Project.id == id).first()
         if project:
-            return Response(json.dumps(project), status=200)
+            return Response(json.dumps(project.as_dict()), status=200)
         else:
             return Response('', status=404)
 
@@ -59,7 +64,7 @@ class TheProject(Resource):
         try:
             claims = get_jwt_claims()
             user_id = claims['user_id']
-            Project.query(and_(Project.id == id, Project.user_id == user_id)).delete()
+            Project.query.filter(and_(Project.id == id, Project.user_id == user_id)).delete()
             db.session.commit()
             return Response('', status=200)
         except Exception as e:
