@@ -6,15 +6,15 @@ import json
 
 
 class DockerManager(object):
-    CONTAINER_PREFIX = 'narwhal_'
+    CONTAINER_PREFIX = 'narwhal_managed_'
     TIMEOUT_LABEL = 'org.narwhal.variables.EXPIRATION_TIMESTAMP'
-    OS_LIST = ['python', 'nodejs']
+    OS_LIST = None
 
     def __init__(self):
         self.client = docker.from_env()
 
         try:
-            with open('manifest.json', 'r') as os_manifest:
+            with open('app/docker/manifest.json', 'r') as os_manifest:
                 self.OS_LIST = json.load(os_manifest)
         except Exception:
             pass
@@ -22,7 +22,7 @@ class DockerManager(object):
         self.AVAILABLE_OS_LIST = []
         for os in self.OS_LIST:
             for ver in os['subList']:
-                self.AVAILABLE_OS_LIST.append(ver['osCode'])
+                self.AVAILABLE_OS_LIST.append(ver['imageTag'])
 
     def create_container(self,
                          mem,
@@ -56,7 +56,7 @@ class DockerManager(object):
                 detach=True,
             )
             container_network.connect(container_name)
-            container_network.connect('instantbox_frontend')
+            container_network.connect('narwhal_frontend')
         except Exception:
             return None
         else:
@@ -79,9 +79,9 @@ class DockerManager(object):
             if container.name.startswith(self.CONTAINER_PREFIX):
                 timeout = container.labels.get(self.TIMEOUT_LABEL)
                 if timeout is not None and float(timeout) < time.time():
-                    self.is_rm_container(container.name)
+                    self.rm_container(container.name)
 
-    def is_rm_container(self, container_id) -> bool:
+    def rm_container(self, container_id) -> bool:
         try:
             container = self.client.containers.get(container_id)
             if container.name.startswith(self.CONTAINER_PREFIX):
@@ -97,8 +97,8 @@ class DockerManager(object):
                 container.remove(force=True)
             return True
 
-    def os_available(self, osCode=None) -> bool:
-        return osCode is not None and osCode in self.AVAILABLE_OS_LIST
+    def is_os_available(self, image_tag=None) -> bool:
+        return image_tag is not None and image_tag in self.AVAILABLE_OS_LIST
 
     def generate_container_name(self) -> str:
         return self.CONTAINER_PREFIX + ''.join(
@@ -108,8 +108,8 @@ class DockerManager(object):
 if __name__ == '__main__':
     test = DockerManager()
     container_name = test.create_container('512', 1,
-                                           'instantbox/ubuntu:latest',
+                                              'instantbox/ubuntu:latest',
                                            time.time())
     test.get_container_ports(container_name)
     test.remove_timeout_containers()
-    test.is_rm_container(container_name)
+    test.rm_container(container_name)

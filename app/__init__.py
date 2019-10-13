@@ -9,12 +9,13 @@ from flask_cors import CORS
 import machine
 import docker
 from app.config import config_by_name
+from app.docker.docker_manager import DockerManager
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 db = SQLAlchemy()
 compress = Compress()
-client = docker.APIClient(base_url='unix://var/run/docker.sock')
+docker_manager = DockerManager()
 
 
 def create_app(config_name):
