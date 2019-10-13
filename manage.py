@@ -8,7 +8,7 @@ from redis import Redis
 from app import create_app, db
 from app.model import User
 
-app = create_app()
+app = create_app(os.getenv('NARWHAL_ENV') or 'dev')
 manager = Manager(app)
 migrate = Migrate(app, db)
 server = Server(host="0.0.0.0", port=65501)

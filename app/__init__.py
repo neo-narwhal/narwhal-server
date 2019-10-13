@@ -6,31 +6,33 @@ from flask_compress import Compress
 from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-import logging
+import machine
+import docker
+from app.config import config_by_name
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 db = SQLAlchemy()
 compress = Compress()
+client = docker.APIClient(base_url='unix://var/run/docker.sock')
 
 
-def create_app():
+def create_app(config_name):
     app = Flask(__name__)
 
-    # not using sqlalchemy event system, hence disabling it
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SERVER_NAME'] = 'narwhal.ntut.club'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://yaoandy107:123qwe@localhost/narwhal'
-    app.config['DEBUG'] = True
-    app.config['JWT_SECRET_KEY'] = 'Let Narwhal great again!'
+    app.config.from_object(config_by_name[config_name])
 
     # Set up extensions
     db.init_app(app)
     compress.init_app(app)
     jwt = JWTManager(app)
     CORS(app, resources={r"/api/*": {"origins": "*"}})
-    
-    logging.getLogger('flask_cors').level = logging.DEBUG
+
+    @jwt.user_claims_loader
+    def add_claims_to_access_token(identity):
+        return {
+            'user_id': str(identity)
+        }
 
     # Create app blueprints
     from .helloworld import blueprint as helloworld_api
