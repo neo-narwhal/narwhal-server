@@ -53,7 +53,9 @@ class Projects(Resource):
 class TheProject(Resource):
     @jwt_required
     def get(self, id):
-        project = Project.query.filter(Project.id == id).first()
+        claims = get_jwt_claims()
+        user_id = claims['user_id']
+        project = Project.query.filter(and_(Project.id == id, Project.user_id == user_id)).first()
         if project:
             return Response(json.dumps(project.as_dict()), status=200)
         else:
