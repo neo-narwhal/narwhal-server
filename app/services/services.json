@@ -1,5 +1,81 @@
 [
   {
+    "label": "Jenkins",
+    "value": "jenkins",
+    "suggestion": "",
+    "logoUrl": "https://i.imgur.com/mtyk8x9.png",
+    "subList": [
+      {
+        "label": "2.60.3",
+        "imageTag": "jenkins:2.60.3"
+      },
+      {
+        "label": "2.46.3",
+        "imageTag": "jenkins:2.46.3"
+      },
+      {
+        "label": "2.32.3",
+        "imageTag": "jenkins:2.32.3"
+      }
+    ]
+  },
+  {
+    "label": "SonarQube",
+    "value": "sonarqube",
+    "suggestion": "",
+    "logoUrl": "https://i.imgur.com/gDbwBlL.png",
+    "subList": [
+      {
+        "label": "7.9.1-community",
+        "imageTag": "sonarqube:7.9.1-community"
+      },
+      {
+        "label": "6.7.7-community",
+        "imageTag": "sonarqube:6.7.7-community"
+      },
+      {
+        "label": "5.6.7",
+        "imageTag": "sonarqube:5.6.7"
+      }
+    ]
+  },
+  {
+    "label": "JupyterHub",
+    "value": "jupyterhub",
+    "suggestion": "",
+    "logoUrl": "https://i.imgur.com/88AJ7Hg.png",
+    "subList": [
+      {
+        "label": "latest",
+        "imageTag": "jupyterhub/jupyterhub"
+      }
+    ]
+  },
+  {
+    "label": "CodeServer",
+    "value": "codeserver",
+    "suggestion": "",
+    "logoUrl": "https://i.imgur.com/kedmvoH.png",
+    "subList": [
+      {
+        "label": "latest",
+        "imageTag": "codercom/code-server"
+      }
+    ]
+  },
+  {
+    "label": "GitLab",
+    "value": "gitlab",
+    "suggestion": "",
+    "logoUrl": "https://i.imgur.com/dDkKuqM.png",
+    "subList": [
+      {
+        "label": "11.10.4-ce.0",
+        "imageTag": "store/gitlab/gitlab-ce:11.10.4-ce.0"
+      }
+    ]
+  },
+  {
     "label": "Ubuntu",
     "value": "ubuntu",
     "suggestion": "",
@@ -102,66 +178,6 @@
   {
     "label": "Alpine",
     "value": "alpine",
-    "suggestion": "",
-    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
-    "subList": [
-      {
-        "label": "latest",
-        "imageTag": "instantbox/alpine:latest"
-      }
-    ]
-  },
-  {
-    "label": "Jenkins",
-    "value": "jenkins",
-    "suggestion": "",
-    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
-    "subList": [
-      {
-        "label": "latest",
-        "imageTag": "jenkins"
-      }
-    ]
-  },
-  {
-    "label": "SonarQube",
-    "value": "sonarqube",
-    "suggestion": "",
-    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
-    "subList": [
-      {
-        "label": "latest",
-        "imageTag": "sonarqube"
-      }
-    ]
-  },
-  {
-    "label": "JupyterHub",
-    "value": "jupyterhub",
-    "suggestion": "",
-    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
-    "subList": [
-      {
-        "label": "latest",
-        "imageTag": "jupyterhub/jupyterhub"
-      }
-    ]
-  },
-  {
-    "label": "CodeServer",
-    "value": "codeserver",
-    "suggestion": "",
-    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
-    "subList": [
-      {
-        "label": "latest",
-        "imageTag": "codercom/code-server"
-      }
-    ]
-  },
-  {
-    "label": "Jenkins",
-    "value": "jenkins",
     "suggestion": "",
     "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
     "subList": [
