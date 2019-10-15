@@ -7,7 +7,6 @@ from sqlalchemy import and_
 
 from app import db, docker_manager
 from app.model.project import Project
-import os
 
 blueprint = Blueprint('projects', __name__)
 api = Api(blueprint)

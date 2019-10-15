@@ -8,11 +8,14 @@ from flask_cors import CORS
 from app.config import config_by_name
 from app.docker.docker_manager import DockerManager
 
+from argon2 import PasswordHasher
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 db = SQLAlchemy()
 compress = Compress()
 docker_manager = DockerManager()
+ph = PasswordHasher()
 
 
 def create_app(config_name):
@@ -44,5 +47,8 @@ def create_app(config_name):
 
     from .services import blueprint as service_api
     app.register_blueprint(service_api, url_prefix='/api/services')
+
+    from .users import blueprint as user_api
+    app.register_blueprint(user_api, url_prefix='/api/users')
 
     return app
