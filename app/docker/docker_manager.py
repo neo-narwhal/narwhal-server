@@ -74,21 +74,14 @@ class DockerManager(object):
                 if timeout is not None and float(timeout) < time.time():
                     self.rm_container(container.name)
 
-    def rm_container(self, container_id) -> bool:
+    def rm_container(self, container_name) -> bool:
         try:
-            container = self.client.containers.get(container_id)
+            container = self.client.containers.get(container_name)
             if container.name.startswith(self.CONTAINER_PREFIX):
                 container.remove(force=True)
-                container_network = self.client.networks.get(
-                    network_id=container_name + '_net',
-                )
-                container_network.remove()
+            return True
         except docker.errors.NotFound:
-            return True
-        else:
-            if container.name.startswith(self.CONTAINER_PREFIX):
-                container.remove(force=True)
-            return True
+            return False
 
     def is_os_available(self, image_tag=None) -> bool:
         return image_tag is not None and image_tag in self.AVAILABLE_OS_LIST

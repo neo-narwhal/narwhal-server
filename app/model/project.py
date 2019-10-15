@@ -11,6 +11,7 @@ class Project(db.Model):
 
     id = Column(INTEGER(10), primary_key=True)
     user_id = Column(ForeignKey('user.id'), nullable=False, index=True)
+    container_name = Column(String(191))
     name = Column(String(191), nullable=False)
     description = Column(String(191), nullable=False)
     image_tag = Column(String(191), nullable=False)

@@ -41,12 +41,17 @@ class Projects(Resource):
                 storage = request.form['storage']
                 is_custom = request.form['isCustom']
 
-                project = Project(user_id=user_id, name=name, description=description, image_tag=image_tag, cpu=cpu,
+                project = Project(user_id=user_id, name=name, description=description,
+                                  image_tag=image_tag, cpu=cpu,
                                   memory=memory, storage=storage, is_custom=is_custom)
                 db.session.add(project)
-                db.session.commit()
+                db.session.flush()
                 port = project.id+2000
-                docker_manager.create_container(mem=memory, cpu=cpu, os_name=image_tag, open_port=port)
+                container_name = docker_manager.create_container(mem=memory, cpu=cpu, os_name=image_tag, open_port=port)
+
+                project.container_name = container_name
+
+                db.session.commit()
 
                 return Response('', status=201)
             else:
@@ -73,9 +78,16 @@ class TheProject(Resource):
         try:
             claims = get_jwt_claims()
             user_id = claims['user_id']
-            Project.query.filter(and_(Project.id == id, Project.user_id == user_id)).delete()
-            db.session.commit()
-            return Response('', status=200)
+            project = Project.query.filter(and_(Project.id == id, Project.user_id == user_id)).first()
+            if project:
+                db.session.delete(project)
+                db.session.commit()
+                if docker_manager.rm_container(project.container_name):
+                    return Response('', status=200)
+                else:
+                    return Response('', status=404)
+            else:
+                return Response('', status=404)
         except Exception as e:
             print(e)
             return Response('', status=400)
