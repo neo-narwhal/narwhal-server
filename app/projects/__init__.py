@@ -5,7 +5,7 @@ import json
 
 from sqlalchemy import and_
 
-from app import db
+from app import db, docker_manager
 from app.model.project import Project
 import os
 
@@ -33,17 +33,25 @@ class Projects(Resource):
             claims = get_jwt_claims()
             user_id = claims['user_id']
             name = request.form['name']
-            description = request.form['description']
-            image_tag = request.form['imageTag']
-            cpu = request.form['cpu']
-            memory = request.form['memory']
-            storage = request.form['storage']
-            is_custom = request.form['isCustom']
-            project = Project(user_id=user_id, name=name, description=description, image_tag=image_tag, cpu=cpu,
-                              memory=memory, storage=storage, is_custom=is_custom)
-            db.session.add(project)
-            db.session.commit()
-            return Response('', status=201)
+            project = Project.query.filter(and_(Project.user_id == user_id, Project.name == name)).first()
+            if not project:
+                description = request.form['description']
+                image_tag = request.form['imageTag']
+                cpu = request.form['cpu']
+                memory = request.form['memory']
+                storage = request.form['storage']
+                is_custom = request.form['isCustom']
+
+                project = Project(user_id=user_id, name=name, description=description, image_tag=image_tag, cpu=cpu,
+                                  memory=memory, storage=storage, is_custom=is_custom)
+                db.session.add(project)
+                db.session.commit()
+                port = project.id+2000
+                docker_manager.create_container(mem=memory, cpu=cpu, os_name=image_tag, open_port=port)
+
+                return Response('', status=201)
+            else:
+                return Response('', status=409)
         except Exception as e:
             print(e)
             return Response('', status=400)

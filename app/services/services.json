@@ -3,6 +3,7 @@
     "label": "Jenkins",
     "value": "jenkins",
     "suggestion": "",
+    "port": "1588",
     "logoUrl": "https://i.imgur.com/mtyk8x9.png",
     "subList": [
       {
@@ -23,6 +24,7 @@
     "label": "SonarQube",
     "value": "sonarqube",
     "suggestion": "",
+    "port": "1588",
     "logoUrl": "https://i.imgur.com/gDbwBlL.png",
     "subList": [
       {
@@ -41,8 +43,9 @@
   },
   {
     "label": "JupyterHub",
-    "value": "jupyterhub",
+    "value": "jupyterhub/jupyterhub",
     "suggestion": "",
+    "port": "1588",
     "logoUrl": "https://i.imgur.com/88AJ7Hg.png",
     "subList": [
       {
@@ -53,20 +56,22 @@
   },
   {
     "label": "CodeServer",
-    "value": "codeserver",
+    "value": "codercom/code-server",
     "suggestion": "",
+    "port": "8080",
     "logoUrl": "https://i.imgur.com/kedmvoH.png",
     "subList": [
       {
-        "label": "latest",
-        "imageTag": "codercom/code-server"
+        "label": "v2",
+        "imageTag": "codercom/code-server:v2"
       }
     ]
   },
   {
     "label": "GitLab",
-    "value": "gitlab",
+    "value": "store/gitlab/gitlab-ce",
     "suggestion": "",
+    "port": "1588",
     "logoUrl": "https://i.imgur.com/dDkKuqM.png",
     "subList": [
       {
@@ -77,8 +82,9 @@
   },
   {
     "label": "Ubuntu",
-    "value": "ubuntu",
+    "value": "instantbox/ubuntu",
     "suggestion": "",
+    "port": "1588",
     "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/ubuntu.png",
     "subList": [
       {
@@ -105,8 +111,9 @@
   },
   {
     "label": "CentOS",
-    "value": "centos",
+    "value": "instantbox/centos",
     "suggestion": "",
+    "port": "1588",
     "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/centos.png",
     "subList": [
       {
@@ -125,8 +132,9 @@
   },
   {
     "label": "Arch Linux",
-    "value": "arch",
+    "value": "instantbox/arch",
     "suggestion": "",
+    "port": "1588",
     "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/arch.png",
     "subList": [
       {
@@ -137,8 +145,9 @@
   },
   {
     "label": "Debian",
-    "value": "debian",
+    "value": "instantbox/debian",
     "suggestion": "",
+    "port": "1588",
     "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/debian.png",
     "subList": [
       {
@@ -157,8 +166,9 @@
   },
   {
     "label": "Fedora",
-    "value": "fedora",
+    "value": "instantbox/fedora",
     "suggestion": "",
+    "port": "1588",
     "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/fedora.png",
     "subList": [
       {
@@ -177,8 +187,9 @@
   },
   {
     "label": "Alpine",
-    "value": "alpine",
+    "value": "instantbox/alpine",
     "suggestion": "",
+    "port": "1588",
     "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
     "subList": [
       {

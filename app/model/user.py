@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Index, String
+from sqlalchemy import Column, String
 from sqlalchemy.dialects.mysql import INTEGER, TINYINT
 
 from .. import db

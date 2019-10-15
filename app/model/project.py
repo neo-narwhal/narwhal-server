@@ -1,6 +1,7 @@
 from sqlalchemy import Column, ForeignKey, String
 from sqlalchemy.dialects.mysql import INTEGER
 from sqlalchemy.orm import relationship
+from sqlalchemy.schema import Sequence
 
 from .. import db
 

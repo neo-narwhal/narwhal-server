@@ -28,20 +28,15 @@ class DockerManager(object):
                          mem,
                          cpu,
                          os_name,
-                         os_timeout,
+                         os_timeout=time.time(),
                          open_port=None):
         if open_port is None:
             port_dict = {}
         else:
-            port_dict = {'{}/tcp'.format(open_port): None}
+            port_dict = {'{}/tcp'.format(self.get_port(os_name.split(':')[0])): open_port}
 
         container_name = self.generate_container_name()
         try:
-            container_network = self.client.networks.create(
-                name=container_name + '_net',
-                driver="bridge",
-                internal=True,
-            )
             self.client.containers.run(
                 image=os_name,
                 cpu_period=100000,
@@ -55,10 +50,8 @@ class DockerManager(object):
                 tty=True,
                 detach=True,
             )
-            container_network.connect(container_name)
-            container_network.connect('narwhal_frontend')
-        except Exception:
-            return None
+        except Exception as e:
+            print(e)
         else:
             return container_name
 
@@ -99,6 +92,11 @@ class DockerManager(object):
 
     def is_os_available(self, image_tag=None) -> bool:
         return image_tag is not None and image_tag in self.AVAILABLE_OS_LIST
+
+    def get_port(self, image):
+        for OS in self.OS_LIST:
+            if OS['value'] == image:
+                return OS['port']
 
     def generate_container_name(self) -> str:
         return self.CONTAINER_PREFIX + ''.join(
