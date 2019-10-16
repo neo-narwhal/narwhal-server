@@ -1,5 +1,5 @@
 from sqlalchemy import Column, ForeignKey, String
-from sqlalchemy.dialects.mysql import INTEGER
+from sqlalchemy.dialects.mysql import INTEGER, BOOLEAN
 from sqlalchemy.orm import relationship
 from sqlalchemy.schema import Sequence
 
@@ -18,7 +18,7 @@ class Project(db.Model):
     cpu = Column(String(191), nullable=False)
     memory = Column(String(191), nullable=False)
     storage = Column(String(191), nullable=False)
-    is_custom = Column(String(191), nullable=False)
+    is_custom = Column(BOOLEAN, nullable=False)
     port = Column(String(191))
 
     user = relationship('User')
