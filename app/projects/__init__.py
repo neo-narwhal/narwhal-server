@@ -10,6 +10,8 @@ from sqlalchemy import and_
 from app import db, docker_manager
 from app.model.project import Project
 
+import time
+
 blueprint = Blueprint('projects', __name__)
 api = Api(blueprint)
 BASE_PATH = '/Users/yaoandy107/narwhal/uplaod'
@@ -47,9 +49,12 @@ class Projects(Resource):
                                   image_tag=image_tag, cpu=cpu,
                                   memory=memory, storage=storage, is_custom=is_custom)
                 db.session.add(project)
+                time.sleep(1)
+
                 # db.session.flush()
                 # port = project.id+2000
                 # container_name = docker_manager.create_container(mem=memory, cpu=cpu, os_name=image_tag, open_port=port)
+
 
                 # project.container_name = container_name
                 # project.port = port
@@ -105,6 +110,7 @@ class TheProject(Resource):
             if project:
                 db.session.delete(project)
                 db.session.commit()
+                time.sleep(1)
                 return Response('', status=200)
                 # if docker_manager.rm_container(project.container_name):
                 #     return Response('', status=200)
