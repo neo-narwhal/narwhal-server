@@ -20,6 +20,7 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
     DEBUG = False
     SERVER_NAME = 'narwhal.ntut.club'
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 config_by_name = dict(
     dev=DevelopmentConfig,
