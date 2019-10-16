@@ -3,6 +3,8 @@ from flask_restplus import Api, Resource
 from flask_jwt_extended import jwt_required, get_jwt_claims
 import json
 
+from flask_restplus.inputs import boolean
+
 from sqlalchemy import and_
 
 from app import db, docker_manager
@@ -39,7 +41,7 @@ class Projects(Resource):
                 cpu = request.form['cpu']
                 memory = request.form['memory']
                 storage = request.form['storage']
-                is_custom = request.form['isCustom']
+                is_custom = boolean(request.form['isCustom'])
 
                 project = Project(user_id=user_id, name=name, description=description,
                                   image_tag=image_tag, cpu=cpu,
