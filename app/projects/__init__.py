@@ -47,12 +47,12 @@ class Projects(Resource):
                                   image_tag=image_tag, cpu=cpu,
                                   memory=memory, storage=storage, is_custom=is_custom)
                 db.session.add(project)
-                db.session.flush()
-                port = project.id+2000
-                container_name = docker_manager.create_container(mem=memory, cpu=cpu, os_name=image_tag, open_port=port)
+                # db.session.flush()
+                # port = project.id+2000
+                # container_name = docker_manager.create_container(mem=memory, cpu=cpu, os_name=image_tag, open_port=port)
 
-                project.container_name = container_name
-                project.port = port
+                # project.container_name = container_name
+                # project.port = port
 
                 db.session.commit()
 
@@ -77,6 +77,26 @@ class TheProject(Resource):
             return Response('', status=404)
 
     @jwt_required
+    def put(self, id):
+        claims = get_jwt_claims()
+        user_id = claims['user_id']
+        project = Project.query.filter(and_(Project.id == id, Project.user_id == user_id)).first()
+        if project:
+            description = request.form['description']
+            cpu = request.form['cpu']
+            memory = request.form['memory']
+            storage = request.form['storage']
+
+            project.description = description
+            project.cpu = cpu
+            project.memory = memory
+            project.storage = storage
+            db.session.commit()
+            return Response(json.dumps(project.as_dict()), status=200)
+        else:
+            return Response('', status=404)
+
+    @jwt_required
     def delete(self, id):
         try:
             claims = get_jwt_claims()
@@ -85,10 +105,11 @@ class TheProject(Resource):
             if project:
                 db.session.delete(project)
                 db.session.commit()
-                if docker_manager.rm_container(project.container_name):
-                    return Response('', status=200)
-                else:
-                    return Response('', status=404)
+                return Response('', status=200)
+                # if docker_manager.rm_container(project.container_name):
+                #     return Response('', status=200)
+                # else:
+                #     return Response('', status=404)
             else:
                 return Response('', status=404)
         except Exception as e:

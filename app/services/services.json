@@ -1,56 +1,15 @@
 [
   {
-    "label": "Jenkins",
-    "value": "jenkins",
+    "label": "JupyterNote",
+    "value": "jupyter/scipy-notebook",
     "suggestion": "",
-    "port": "1588",
-    "logoUrl": "https://i.imgur.com/mtyk8x9.png",
+    "port": "8888",
+    "cmd": "start.sh jupyter notebook --NotebookApp.token=''",
+    "logoUrl": "https://i.imgur.com/o9sEqJ0.png",
     "subList": [
       {
-        "label": "2.60.3",
-        "imageTag": "jenkins:2.60.3"
-      },
-      {
-        "label": "2.46.3",
-        "imageTag": "jenkins:2.46.3"
-      },
-      {
-        "label": "2.32.3",
-        "imageTag": "jenkins:2.32.3"
-      }
-    ]
-  },
-  {
-    "label": "SonarQube",
-    "value": "sonarqube",
-    "suggestion": "",
-    "port": "1588",
-    "logoUrl": "https://i.imgur.com/gDbwBlL.png",
-    "subList": [
-      {
-        "label": "7.9.1-community",
-        "imageTag": "sonarqube:7.9.1-community"
-      },
-      {
-        "label": "6.7.7-community",
-        "imageTag": "sonarqube:6.7.7-community"
-      },
-      {
-        "label": "5.6.7",
-        "imageTag": "sonarqube:5.6.7"
-      }
-    ]
-  },
-  {
-    "label": "JupyterHub",
-    "value": "jupyterhub/jupyterhub",
-    "suggestion": "",
-    "port": "1588",
-    "logoUrl": "https://i.imgur.com/88AJ7Hg.png",
-    "subList": [
-      {
-        "label": "latest",
-        "imageTag": "jupyterhub/jupyterhub"
+        "label": "17aba6048f44",
+        "imageTag": "jupyter/scipy-notebook:17aba6048f44"
       }
     ]
   },
@@ -58,6 +17,7 @@
     "label": "CodeServer",
     "value": "codercom/code-server",
     "suggestion": "",
+    "cmd": "",
     "port": "8080",
     "logoUrl": "https://i.imgur.com/kedmvoH.png",
     "subList": [
@@ -68,22 +28,10 @@
     ]
   },
   {
-    "label": "GitLab",
-    "value": "store/gitlab/gitlab-ce",
-    "suggestion": "",
-    "port": "1588",
-    "logoUrl": "https://i.imgur.com/dDkKuqM.png",
-    "subList": [
-      {
-        "label": "11.10.4-ce.0",
-        "imageTag": "store/gitlab/gitlab-ce:11.10.4-ce.0"
-      }
-    ]
-  },
-  {
     "label": "Ubuntu",
     "value": "instantbox/ubuntu",
     "suggestion": "",
+    "cmd": "",
     "port": "1588",
     "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/ubuntu.png",
     "subList": [
@@ -113,6 +61,7 @@
     "label": "CentOS",
     "value": "instantbox/centos",
     "suggestion": "",
+    "cmd": "",
     "port": "1588",
     "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/centos.png",
     "subList": [
@@ -147,6 +96,7 @@
     "label": "Debian",
     "value": "instantbox/debian",
     "suggestion": "",
+    "cmd": "",
     "port": "1588",
     "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/debian.png",
     "subList": [
@@ -168,6 +118,7 @@
     "label": "Fedora",
     "value": "instantbox/fedora",
     "suggestion": "",
+    "cmd": "",
     "port": "1588",
     "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/fedora.png",
     "subList": [
@@ -189,12 +140,71 @@
     "label": "Alpine",
     "value": "instantbox/alpine",
     "suggestion": "",
+    "cmd": "",
     "port": "1588",
     "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/alpine.png",
     "subList": [
       {
         "label": "latest",
         "imageTag": "instantbox/alpine:latest"
+      }
+    ]
+  },
+  {
+    "label": "GitLab",
+    "value": "store/gitlab/gitlab-ce",
+    "suggestion": "",
+    "cmd": "",
+    "port": "80",
+    "logoUrl": "https://i.imgur.com/dDkKuqM.png",
+    "subList": [
+      {
+        "label": "11.10.4-ce.0",
+        "imageTag": "store/gitlab/gitlab-ce:11.10.4-ce.0"
+      }
+    ]
+  },
+  {
+    "label": "Jenkins",
+    "value": "jenkins",
+    "suggestion": "",
+    "cmd": "",
+    "port": "8080",
+    "logoUrl": "https://i.imgur.com/mtyk8x9.png",
+    "subList": [
+      {
+        "label": "2.60.3",
+        "imageTag": "jenkins:2.60.3"
+      },
+      {
+        "label": "2.46.3",
+        "imageTag": "jenkins:2.46.3"
+      },
+      {
+        "label": "2.32.3",
+        "imageTag": "jenkins:2.32.3"
+      }
+    ]
+  },
+  {
+    "label": "SonarQube",
+    "value": "sonarqube",
+    "suggestion": "",
+    "cmd": "",
+    "port": "9000",
+    "logoUrl": "https://i.imgur.com/gDbwBlL.png",
+    "subList": [
+      {
+        "label": "7.9.1-community",
+        "imageTag": "sonarqube:7.9.1-community"
+      },
+      {
+        "label": "6.7.7-community",
+        "imageTag": "sonarqube:6.7.7-community"
+      },
+      {
+        "label": "5.6.7",
+        "imageTag": "sonarqube:5.6.7"
       }
     ]
   }
