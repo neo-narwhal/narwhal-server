@@ -20,7 +20,6 @@ class Project(db.Model):
     storage = Column(String(191), nullable=False)
     is_custom = Column(BOOLEAN, nullable=False)
     port = Column(String(191))
-    type = Column(String(191), nullable=False)
 
     user = relationship('User')
 
