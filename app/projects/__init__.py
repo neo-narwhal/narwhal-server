@@ -50,6 +50,7 @@ class Projects(Resource):
                 container_name = docker_manager.create_container(mem=memory, cpu=cpu, os_name=image_tag, open_port=port)
 
                 project.container_name = container_name
+                project.port = port
 
                 db.session.commit()
 

@@ -19,6 +19,7 @@ class Project(db.Model):
     memory = Column(String(191), nullable=False)
     storage = Column(String(191), nullable=False)
     is_custom = Column(String(191), nullable=False)
+    port = Column(String(191))
 
     user = relationship('User')
 
