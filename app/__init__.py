@@ -51,4 +51,6 @@ def create_app(config_name):
     from .users import blueprint as user_api
     app.register_blueprint(user_api, url_prefix='/api/users')
 
+    from .container import blueprint as container_api
+    app.register_blueprint(container_api, url_prefix='/api/container')
     return app
