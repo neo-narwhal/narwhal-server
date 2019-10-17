@@ -22,4 +22,4 @@ class Container(Resource):
 
     def get(self, id):
         time.sleep(2)
-        return send_file('./ubuntu.tar', as_attachment=True)
+        return send_file('./container.tar', as_attachment=True)
