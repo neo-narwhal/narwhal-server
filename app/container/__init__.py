@@ -13,4 +13,4 @@ class Container(Resource):
 
     def get(self, id):
         time.sleep(2)
-        return send_file('app/container/container.tar', as_attachment=True)
+        return send_file('./container/container.tar', as_attachment=True)
