@@ -56,5 +56,19 @@
         "imageTag": "instantbox/ubuntu:latest"
       }
     ]
+  },
+  {
+    "label": "Jenkins",
+    "value": "jenkins",
+    "suggestion": "",
+    "cmd": "",
+    "port": "1234",
+    "logoUrl": "https://i.imgur.com/mtyk8x9.png",
+    "subList": [
+      {
+        "label": "2.60.3",
+        "imageTag": "jenkins:2.60.3"
+      }
+    ]
   }
 ]
