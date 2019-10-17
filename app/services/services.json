@@ -28,36 +28,6 @@
     ]
   },
   {
-    "label": "Ubuntu",
-    "value": "instantbox/ubuntu",
-    "suggestion": "",
-    "cmd": "",
-    "port": "1588",
-    "logoUrl": "https://cdn.jsdelivr.net/gh/instantbox/instantbox-images/icon/ubuntu.png",
-    "subList": [
-      {
-        "label": "14.04",
-        "imageTag": "instantbox/ubuntu:14.04"
-      },
-      {
-        "label": "16.04",
-        "imageTag": "instantbox/ubuntu:16.04"
-      },
-      {
-        "label": "18.04",
-        "imageTag": "instantbox/ubuntu:18.04"
-      },
-      {
-        "label": "19.04",
-        "imageTag": "instantbox/ubuntu:19.04"
-      },
-      {
-        "label": "latest",
-        "imageTag": "instantbox/ubuntu:latest"
-      }
-    ]
-  },
-  {
     "label": "Jenkins",
     "value": "jenkins",
     "suggestion": "",
