@@ -20,13 +20,6 @@ BASE_PATH = '/Users/yaoandy107/narwhal/uplaod'
 @api.route('/<id>')
 class Container(Resource):
 
-    @jwt_required
-    def post(self, id):
-        claims = get_jwt_claims()
-        user_id = claims['user_id']
-        project = Project.query.filter(and_(Project.id == id, Project.user_id == user_id)).first()
-        if project:
-            time.sleep(2)
-            return send_file('./ubuntu.tar', as_attachment=True)
-        else:
-            return Response('', status=404)
+    def get(self, id):
+        time.sleep(2)
+        return send_file('./ubuntu.tar', as_attachment=True)
