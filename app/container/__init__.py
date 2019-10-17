@@ -1,7 +1,7 @@
 from flask import Blueprint, Response, request, jsonify, send_file
 from flask_restplus import Api, Resource
 from flask_jwt_extended import jwt_required, get_jwt_claims
-import json
+import time
 
 from flask_restplus.inputs import boolean
 
@@ -26,6 +26,7 @@ class Container(Resource):
         user_id = claims['user_id']
         project = Project.query.filter(and_(Project.id == id, Project.user_id == user_id)).first()
         if project:
+            time.sleep(2)
             return send_file('./ubuntu.tar', as_attachment=True)
         else:
             return Response('', status=404)
